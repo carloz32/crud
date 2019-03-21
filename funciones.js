@@ -72,15 +72,41 @@ const mostrarmat = () => {
         ganan.forEach(estudiante => {
             console.log(estudiante.nombre);
             console.log('Notas')
-            console.log('Matematicas ' + estudiante.matematicas+'\n')
+            console.log('Matematicas ' + estudiante.matematicas + '\n')
 
         });
     }
 }
 
+const actualizar = (nom, asignatura, calificacion) => {
+    listar()
+    let encontrado = listaEstudiantes.find(buscar => buscar.nombre == nom)
+    if (!encontrado) {
+        console.log ('El estudiante no exite')
+    }else{
+        encontrado[asignatura]=calificacion;
+        console.log ('Estudiante actulizado');
+        guardar()
+    }
+}
+
+const eliminar = (nom)=>{
+    listar()
+    let nuevo = listaEstudiantes.filter(estudiante => estudiante.nombre !=nom);
+    if (nuevo.length == listaEstudiantes.length) {
+        console.log('Ningun estudiante tiene el nombre indicado');
+    } else {
+        listaEstudiantes= nuevo;
+        guardar();
+    }
+}
+
+
 module.exports = {
     crear,
     mostrar,
     mostrarest,
-    mostrarmat
-}
+    mostrarmat,
+    actualizar,
+    eliminar
+} 

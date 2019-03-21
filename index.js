@@ -1,27 +1,33 @@
-const {argv}=require ('./yargs');
-const funciones= require ('./funciones');
-let comando= argv._[0];
+const { argv } = require('./yargs');
+const funciones = require('./funciones');
+let comando = argv._[0];
 
-switch (comando){
+switch (comando) {
     case 'crear':
-    funciones.crear(argv);
-    break
+        funciones.crear(argv);
+        break
 
     case 'mostrar':
-    funciones.mostrar();
-    break
+        funciones.mostrar();
+        break
 
     case 'mostrarest':
-    funciones.mostrarest(argv.nombre);
-    break
+        funciones.mostrarest(argv.nombre);
+        break
 
     case 'mostrarmat':
-    funciones.mostrarmat();
-    break
+        funciones.mostrarmat();
+        break
 
+    case 'actualizar':
+        funciones.actualizar(argv.nombre, argv.asignatura, argv.calificacion)
+        break
 
+    case 'eliminar':
+        funciones.eliminar(argv.nombre)
+        break
 
-    default: 
-    console.log ('No ingreso una función existenta');
+    default:
+        console.log('No ingreso una función existenta');
 
 }

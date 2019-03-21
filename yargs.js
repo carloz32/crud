@@ -25,16 +25,34 @@ const creacion = {
     programacion
 }
 
-const muestraest={
+const muestraest = {
+    nombre
+}
+
+const actualizar = {
+    nombre,
+    asignatura: {
+        demand: true,
+        alias: 'a'
+    },
+    calificacion: {
+        demand: true,
+        alias: 'c'
+
+    }
+}
+
+const eliminar = {
     nombre
 }
 
 const argv = require('yargs')
-            .command('crear', 'Crear un estudiante en mi BD', creacion)
-            .command('mostrar', 'Muestra los estudiantes')
-            .command('mostrarest', 'Muestra la información de un estudiante en especifico',muestraest)
-          
-            .argv;
+    .command('crear', 'Crear un estudiante en mi BD', creacion)
+    .command('mostrar', 'Muestra los estudiantes')
+    .command('mostrarest', 'Muestra la información de un estudiante en especifico', muestraest)
+    .command('actualizar', 'Actualiza la información del curso', actualizar)
+    .command('eliminar','Elimina la informacion del curso',eliminar)
+    .argv;
 
 module.exports = {
     argv
